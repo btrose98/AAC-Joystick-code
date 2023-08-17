@@ -12,6 +12,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: List directories content
+        run: |
+          dir "D:\a\AAC-Joystick-code\"
+          dir "D:\a\AAC-Joystick-code\AAC-Joystick-code\"
+          dir "D:\a\AAC-Joystick-code\AAC-Joystick-code\AAC-Joystick-code\"
       - name: Setup arduino-cli
         uses: arduino/setup-arduino-cli@v1.1.2
       - name: Install libraries
