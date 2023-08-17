@@ -21,4 +21,5 @@ jobs:
         run: |
           arduino-cli core update-index
           arduino-cli core install arduino:avr
-          arduino-cli compile --fqbn arduino:avr:leonardo ${{ github.workspace }}\joystickCode.ino
+          arduino-cli compile --fqbn arduino:avr:leonardo AAC-Joystick-code\joystickCode.ino
+
