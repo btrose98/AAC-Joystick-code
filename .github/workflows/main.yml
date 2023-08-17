@@ -15,8 +15,7 @@ jobs:
       - name: List directories content
         run: |
           dir "D:\a\AAC-Joystick-code\"
-          dir "D:\a\AAC-Joystick-code\AAC-Joystick-code\"
-          dir "D:\a\AAC-Joystick-code\AAC-Joystick-code\AAC-Joystick-code\"
+          dir "${{ github.workspace }}"
       - name: Setup arduino-cli
         uses: arduino/setup-arduino-cli@v1.1.2
       - name: Install libraries
@@ -26,5 +25,5 @@ jobs:
         run: |
           arduino-cli core update-index
           arduino-cli core install arduino:avr
-          arduino-cli compile --fqbn arduino:avr:leonardo AAC-Joystick-code\joystickCode.ino
+          arduino-cli compile --fqbn arduino:avr:leonardo ${{ github.workspace }}\joystickCode.ino
 
