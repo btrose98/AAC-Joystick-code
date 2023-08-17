@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup arduino-cli
-        uses: arduino/setup-arduino-cli@v1.0.0
+        uses: arduino/setup-arduino-cli@v1.1.2
       - name: Install libraries
         run: |
           arduino-cli lib install Mouse
