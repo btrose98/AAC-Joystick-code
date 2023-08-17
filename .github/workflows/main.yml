@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "**.ino"
+  workflow_dispatch:
 
 jobs:
   build:
