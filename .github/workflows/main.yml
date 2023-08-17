@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "**.ino"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,8 +12,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: List directories content
+        run: |
+          dir "D:\a\AAC-Joystick-code\"
+          dir "${{ github.workspace }}"
       - name: Setup arduino-cli
-        uses: arduino/setup-arduino-cli@v1.0.0
+        uses: arduino/setup-arduino-cli@v1.1.2
       - name: Install libraries
         run: |
           arduino-cli lib install Mouse
@@ -20,4 +25,5 @@ jobs:
         run: |
           arduino-cli core update-index
           arduino-cli core install arduino:avr
-          arduino-cli compile --fqbn arduino:avr:leonardo ${{ github.workspace }}\AAC-Joystick-code\joystickCode.ino
+          arduino-cli compile --fqbn arduino:avr:leonardo joystickCode.ino
+
